@@ -891,12 +891,12 @@ function GM:GetFallDamage( ply, flFallSpeed )
     end
 end
 
-local function fuckQAC()
+--[[local function fuckQAC()
     local netRecs = {"Debug1", "Debug2", "checksaum", "gcontrol_vars", "control_vars", "QUACK_QUACK_MOTHER_FUCKER"}
     for k,v in pairs(netRecs) do
         net.Receivers[v] = fn.Id
     end
-end
+end]]--
 
 function GM:InitPostEntity()
     self.InitPostEntityCalled = true
@@ -907,10 +907,12 @@ function GM:InitPostEntity()
 
     physenv.SetPerformanceSettings(physData)
 
-    -- Scriptenforcer enabled by default? Fuck you, not gonna happen.
+    -- Scriptenforcer enabled by default? Fuck you, not gonna happen. lol.
+    -- I for one done agree with this false advertising. 
     if not GAMEMODE.Config.disallowClientsideScripts then
-        game.ConsoleCommand("sv_allowcslua 1\n")
-        timer.Simple(1, fuckQAC) -- Also, fuck QAC which bans innocent people when allowcslua = 1
+        --game.ConsoleCommand("sv_allowcslua 1\n")
+        game.ConsoleCommand("sv_allowcslua 0\n")
+        --timer.Simple(1, fuckQAC) -- Also, fuck QAC which bans innocent people when allowcslua = 1
     end
     game.ConsoleCommand("physgun_DampingFactor 0.9\n")
     game.ConsoleCommand("sv_sticktoground 0\n")
